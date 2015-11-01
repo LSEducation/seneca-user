@@ -577,7 +577,7 @@ module.exports = function user(options) {
         {},
         cleanargs,
         {
-          id$     : uuid(),
+          id     : uuid(),
           nick    : user.nick,
           user    : user.id,
           when    : new Date().toISOString(),
@@ -586,7 +586,7 @@ module.exports = function user(options) {
         },
         "role,cmd,password"))
 
-      login.token = login.id$, // DEPRECATED
+      login.token = login.id, // DEPRECATED
 
       login.save$( function( err, login ){
         if( err ) return done(err);
@@ -712,7 +712,7 @@ module.exports = function user(options) {
     var resetent = seneca.make('sys/reset')
 
     resetent.make$({
-      id$:    uuid(),
+      id:    uuid(),
       nick:   user.nick,
       user:   user.id,
       when:   new Date().toISOString(),
